@@ -77,7 +77,7 @@ if __name__=='__main__':
                 for index, val in enumerate(value):
                     # Sequences will be saved with the name of the label followed by the batch index,
                     # and the order of the sequence in that batch.           
-                    fn = open(f"/content/drive/MyDrive/rubisco_ZymCTRL/output_sequences/{label}_{i}_{index}.fasta", "w")
+                    fn = open(f"/content/rubisco_finetuning_ZymCTRL/output_sequences/{label}_{i}_{index}.fasta", "w")
                     fn.write(f'>{label}_{i}_{index}\t{val[1]}\n{val[0]}')
                     fn.close()
 

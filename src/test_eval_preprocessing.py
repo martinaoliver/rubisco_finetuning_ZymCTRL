@@ -10,8 +10,7 @@ tokenizer = AutoTokenizer.from_pretrained('AI4PD/ZymCTRL')
 ec_label = '1.1.1.1' # CHANGE TO YOUR LABEL
 validation_split_percentage = 10 # change if you want
 filename = 'combined_top50'
-sequence_file = f'/content/rubisco_ZymCTRL/input_sequences/{filename}.fasta'
-
+sequence_file = f'/content/rubisco_finetuning_ZymCTRL/input_sequences/{filename}.fasta'
 
 #Load sequences, Read source file
 with open(sequence_file, 'r') as fn: #! CHANGE TO SEQUENCES.FASTA
@@ -156,5 +155,5 @@ lm_datasets = tokenized_datasets.map(
 train_dataset = lm_datasets["train"]
 eval_dataset = lm_datasets["validation"]
 
-train_dataset.save_to_disk(f'/content/rubisco_ZymCTRL/input_sequences/preprocessed_dataset_{filename}/train2')
-eval_dataset.save_to_disk(f'/content/rubisco_ZymCTRL/input_sequences/preprocessed_dataset_{filename}/eval2')
+train_dataset.save_to_disk(f'/content/rubisco_finetuning_ZymCTRL/input_sequences/preprocessed_dataset_{filename}/train2')
+eval_dataset.save_to_disk(f'/content/rubisco_finetuning_ZymCTRL/input_sequences/preprocessed_dataset_{filename}/eval2')
