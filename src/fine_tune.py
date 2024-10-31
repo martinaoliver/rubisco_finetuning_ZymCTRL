@@ -371,7 +371,7 @@ def main():
 
     if training_args.push_to_hub:
         # trainer.push_to_hub(**kwargs)
-        # trainer.push_to_hub("martinaoliver/ZymCTRL", token='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', max_shard_size="5GB", safe_serialization=True)
+        # trainer.push_to_hub("martinaoliver/ZymCTRL", token='', max_shard_size="5GB", safe_serialization=True)
         trainer.push_to_hub("martinaoliver/ZymCTRL", max_shard_size="5GB", safe_serialization=True)
     else:
         trainer.create_model_card(**kwargs)
