@@ -308,8 +308,8 @@ def main():
 
     model.resize_token_embeddings(len(tokenizer))
     filename = 'combined_top50'
-    train_dataset = load_from_disk(f'/content/rubisco_ZymCTRL/input_sequences/preprocessed_dataset_{filename}/train2')
-    eval_dataset = load_from_disk(f'/content/rubisco_ZymCTRL/input_sequences/preprocessed_dataset_{filename}/eval2')
+    train_dataset = load_from_disk(f'/content/rubisco_finetuning_ZymCTRL/input_sequences/preprocessed_dataset_{filename}/train2')
+    eval_dataset = load_from_disk(f'/content/rubisco_finetuning_ZymCTRL/input_sequences/preprocessed_dataset_{filename}/eval2')
 
     # Initialize our Trainer
     trainer = Trainer(
@@ -371,7 +371,8 @@ def main():
 
     if training_args.push_to_hub:
         # trainer.push_to_hub(**kwargs)
-        trainer.push_to_hub("martinaoliver/ZymCTRL", token='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', max_shard_size="5GB", safe_serialization=True)
+        # trainer.push_to_hub("martinaoliver/ZymCTRL", token='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', max_shard_size="5GB", safe_serialization=True)
+        trainer.push_to_hub("martinaoliver/ZymCTRL", max_shard_size="5GB", safe_serialization=True)
     else:
         trainer.create_model_card(**kwargs)
 
